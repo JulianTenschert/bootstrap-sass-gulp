@@ -1,13 +1,13 @@
-var gulp = require('gulp');
-var sass = require('gulp-sass');
-var htmlmin = require('gulp-htmlmin');
-var uglify = require('gulp-uglify');
-var concat = require('gulp-concat');
-var clean = require('gulp-clean');
-var imagemin = require('gulp-imagemin');
-var cache = require('gulp-cache');
-var useref = require('gulp-useref');
-var gulpif = require('gulp-if');
+var gulp 	= require('gulp'),
+	sass 	= require('gulp-sass'),
+	htmlmin = require('gulp-htmlmin'),
+	uglify 	= require('gulp-uglify'),
+	concat 	= require('gulp-concat'),
+	clean 	= require('gulp-clean'),
+	imgmin 	= require('gulp-imagemin'),
+	cache 	= require('gulp-cache'),
+	useref 	= require('gulp-useref'),
+	gulpif 	= require('gulp-if');
 
 var config = {
 	srcPath: './src',
@@ -36,13 +36,13 @@ gulp.task('compile', function () {
 		}),
 		htmlmin({collapseWhitespace: true})
 	))
-	
+
 	.pipe(gulp.dest(config.destDir));
 });
 
 gulp.task('images', function() {
 	return gulp.src(config.imgPath + '/**/*')
-	.pipe(cache(imagemin({ optimizationLevel: 5, progressive: true, interlaced: true, multipass: true })))
+	.pipe(cache(imgmin({ optimizationLevel: 5, progressive: true, interlaced: true, multipass: true })))
 	.pipe(gulp.dest(config.destDir + '/img'))
 });
 
