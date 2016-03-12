@@ -1,7 +1,7 @@
 {
-  "name": "Bootstrap-Sass-Gulp",
+  "name": "bootstrap-sass-gulp,
   "version": "0.0.1",
-  "description": "",
+  "description": "Bootstrap with sass and gulp. Depends only on npm packages.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
