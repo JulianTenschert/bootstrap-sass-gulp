@@ -1,0 +1,1 @@
+console.log("JavaScript File 1 successfully loaded"),console.log("JavaScript File 2 successfully loaded");

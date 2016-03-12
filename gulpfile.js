@@ -6,7 +6,6 @@ var concat = require('gulp-concat');
 var clean = require('gulp-clean');
 var imagemin = require('gulp-imagemin');
 var cache = require('gulp-cache');
-var jshint = require('gulp-jshint');
 var useref = require('gulp-useref');
 var gulpif = require('gulp-if');
 
@@ -27,14 +26,12 @@ gulp.task('compile', function () {
 return gulp.src(config.srcPath + '/*.html')
     .pipe(useref())
     .pipe(gulpif('*.js',
-		uglify(),
-		jshint()
+		uglify()
 	))
     .pipe(gulpif('*.css',
 		sass({
-			outputStyle: '',
+			outputStyle: 'compressed',
 	        includePaths: [
-				config.sassPath + '/**/*',
 	            config.nodeDir + '/bootstrap-sass/assets/stylesheets',
 	            config.nodeDir + '/font-awesome/scss']
 		}),
@@ -56,4 +53,4 @@ return gulp.src(config.srcPath + '/*.txt')
 
 gulp.task('default', ['clean'], function() {
 	gulp.start('compile', 'images', 'copy');
-});uglify
+});
