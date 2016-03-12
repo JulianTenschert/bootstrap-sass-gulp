@@ -24,10 +24,9 @@ gulp.task('clean', function () {
 gulp.task('compile', function () {
 	return gulp.src(config.srcPath + '/*.html')
 	.pipe(useref())
-	.pipe(gulpif('*.js',
-		uglify()
-	))
-    .pipe(gulpif('*.css',
+	.pipe(gulpif('*.js', uglify()))
+
+	.pipe(gulpif('*.css',
 		sass({
 			outputStyle: 'compressed',
 			includePaths: [
@@ -37,7 +36,8 @@ gulp.task('compile', function () {
 		}),
 		htmlmin({collapseWhitespace: true})
 	))
-    .pipe(gulp.dest(config.destDir));
+	
+	.pipe(gulp.dest(config.destDir));
 });
 
 gulp.task('images', function() {
