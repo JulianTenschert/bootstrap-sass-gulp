@@ -21,7 +21,6 @@ return gulp.src(config.destDir, {read: false})
 	.pipe(clean());
 });
 
-
 gulp.task('compile', function () {
 return gulp.src(config.srcPath + '/*.html')
     .pipe(useref())
@@ -31,9 +30,10 @@ return gulp.src(config.srcPath + '/*.html')
     .pipe(gulpif('*.css',
 		sass({
 			outputStyle: 'compressed',
-	        includePaths: [
+			includePaths: [
 	            config.nodeDir + '/bootstrap-sass/assets/stylesheets',
-	            config.nodeDir + '/font-awesome/scss']
+	            config.nodeDir + '/font-awesome/scss'
+			]
 		}),
 		htmlmin({collapseWhitespace: true})
 	))
