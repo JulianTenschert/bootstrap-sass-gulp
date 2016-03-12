@@ -23,8 +23,8 @@ gulp.task('clean', function () {
 
 gulp.task('compile', function () {
 	return gulp.src(config.srcPath + '/*.html')
-    .pipe(useref())
-    .pipe(gulpif('*.js',
+	.pipe(useref())
+	.pipe(gulpif('*.js',
 		uglify()
 	))
     .pipe(gulpif('*.css',
