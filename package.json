@@ -1,6 +1,6 @@
 {
   "name": "bootstrap-sass-gulp",
-  "version": "1.0",
+  "version": "1.0.0",
   "description": "Bootstrap with sass and gulp. Depends only on npm packages.",
   "main": "gulpfile.js",
   "scripts": {
