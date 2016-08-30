@@ -1,6 +1,10 @@
 # bootstrap-sass-gulp
 Bootstrap with sass and gulp. Depends only on npm packages.
 
+1) Clone project.
+2) Install NodeJs
+3) In project-dir: npm install .
+4) Start: gulp / gulp compile / gulp clean / etc. (watch gulpfile.js)
 
 The MIT License (MIT)
 
