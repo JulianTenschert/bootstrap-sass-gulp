@@ -2,7 +2,6 @@
 Bootstrap with sass and gulp. Depends only on npm packages.
 
 
-
 The MIT License (MIT)
 
 Copyright (c) 2016 accomplished

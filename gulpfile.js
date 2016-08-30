@@ -18,7 +18,7 @@ var config = {
 
 gulp.task('clean', function () {
 	return gulp.src(config.destDir, { read: false })
-	.pipe(clean());
+	.pipe(clean())
 });
 
 gulp.task('compile', function () {
@@ -37,7 +37,8 @@ gulp.task('compile', function () {
 		htmlmin({collapseWhitespace: true})
 	))
 
-	.pipe(gulp.dest(config.destDir));
+	.pipe(gulp.dest(config.destDir))
+
 });
 
 gulp.task('images', function() {
@@ -48,9 +49,9 @@ gulp.task('images', function() {
 
 gulp.task('copy', function() {
 	return gulp.src(config.srcPath + '/*.txt')
-	.pipe(gulp.dest(config.destDir));
+	.pipe(gulp.dest(config.destDir))
 });
 
 gulp.task('default', ['clean'], function() {
-	gulp.start('compile', 'images', 'copy');
+	gulp.start('compile', 'images', 'copy')
 });
