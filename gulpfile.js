@@ -8,8 +8,7 @@ var	gulp 	= require('gulp'),
 	cache 	= require('gulp-cache'),
 	useref 	= require('gulp-useref'),
 	gulpif 	= require('gulp-if'),
-	react	= require('gulp-react'),
-	babel	= require('gulp-babel');
+	react	= require('gulp-react');
 
 var config = {
 	srcPath: './src',
@@ -26,7 +25,6 @@ gulp.task('clean', function () {
 gulp.task('compile', function () {
 	return gulp.src(config.srcPath + '/*.html')
 	.pipe(useref())
-	.pipe(gulpif('*.js', babel({presets: ['es2015']})))
 	.pipe(gulpif('*.js', react()))
 	.pipe(gulpif('*.js', uglify()))
 	.pipe(gulpif('*.css',
