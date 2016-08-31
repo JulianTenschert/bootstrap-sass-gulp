@@ -7,7 +7,8 @@ var	gulp 	= require('gulp'),
 	imgmin 	= require('gulp-imagemin'),
 	cache 	= require('gulp-cache'),
 	useref 	= require('gulp-useref'),
-	gulpif 	= require('gulp-if');
+	gulpif 	= require('gulp-if'),
+	react	= require('gulp-react');
 
 var config = {
 	srcPath: './src',
@@ -24,8 +25,8 @@ gulp.task('clean', function () {
 gulp.task('compile', function () {
 	return gulp.src(config.srcPath + '/*.html')
 	.pipe(useref())
+	.pipe(gulpif('*.js', react()))
 	.pipe(gulpif('*.js', uglify()))
-
 	.pipe(gulpif('*.css',
 		sass({
 			outputStyle: 'compressed',
@@ -33,8 +34,8 @@ gulp.task('compile', function () {
 				config.nodeDir + '/bootstrap-sass/assets/stylesheets',
 				config.nodeDir + '/font-awesome/scss'
 			]
-		}),
-		htmlmin({collapseWhitespace: true})
+		})/*,
+		htmlmin({collapseWhitespace: true}) */
 	))
 
 	.pipe(gulp.dest(config.destDir))
@@ -47,11 +48,16 @@ gulp.task('images', function() {
 	.pipe(gulp.dest(config.destDir + '/img'))
 });
 
-gulp.task('copy', function() {
+gulp.task('copy-txt-files', function() {
 	return gulp.src(config.srcPath + '/*.txt')
 	.pipe(gulp.dest(config.destDir))
 });
 
+gulp.task('copy-bs-fonts', function(){
+	return gulp.src(config.nodeDir + '/bootstrap-sass/assets/fonts/bootstrap/*.{eot,svg,ttf,woff,woff2}')
+	.pipe(gulp.dest(config.destDir + '/fonts/bootstrap'));
+});
+
 gulp.task('default', ['clean'], function() {
-	gulp.start('compile', 'images', 'copy')
+	gulp.start('compile', 'images', 'copy-txt-files', 'copy-bs-fonts')
 });
