@@ -1,5 +1,5 @@
 # bootstrap-sass-gulp
-Bootstrap with sass, react and gulp. Depends only on npm packages.
+Bootstrap with sass, react and gulp. Depends only on npm packages. Nr. 4
 
 1) Clone project.
 2) Install Node.js (npm)
